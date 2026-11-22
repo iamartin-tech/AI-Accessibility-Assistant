@@ -1,4 +1,3 @@
-
 # JARVIS Document Assistant
 
 ## Project Overview
@@ -17,9 +16,10 @@ The project demonstrates how Python, speech recognition, and document management
 - Text-to-speech responses
 - Reading stored documents aloud
 - JSON-based document storage
-- Document creation, selection, and deletion
-- Help commands
-- Voice commands for exiting the application
+- Document creation, import, selection, display, and deletion
+- Help commands and accessibility status reporting
+- Voice commands for exiting the application using the wake word
+- Document selection by name or displayed number
 
 ## Technologies Used
 
@@ -29,6 +29,7 @@ The project demonstrates how Python, speech recognition, and document management
 - JSON
 - Microphone and audio-output support
 - Eclipse IDE with PyDev
+- Native operating-system text-to-speech support
 
 ## Prerequisites
 
@@ -46,7 +47,7 @@ Keyboard input can be used when voice interaction is unavailable.
 
 ### 1. Download the Project
 
-Download or clone the GitHub repository.
+Download or clone the GitHub repository:
 
 ```bash
 git clone https://github.com/iamartin-tech/AI-Accessibility-Assistant.git
@@ -66,13 +67,13 @@ python -m venv venv
 
 ### 3. Activate the Virtual Environment
 
-Windows:
+**Windows (Command Prompt):**
 
-```bash
+```bat
 venv\Scripts\activate
 ```
 
-Linux/macOS:
+**Linux/macOS:**
 
 ```bash
 source venv/bin/activate
@@ -92,28 +93,33 @@ python aiproject.py
 
 The application should initialize and announce:
 
-"Jarvis is online."
+> Jarvis is online.
 
 ## Voice Commands
 
-The application supports the following commands:
+The application supports the following spoken commands:
 
 | Command | Description |
-|---------|-------------|
+|---|---|
 | Jarvis list documents | Lists stored documents |
+| Jarvis select a document | Prompts for a document name or number |
 | Jarvis read | Begins the document-reading process |
+| Jarvis store a document | Starts the document storage process |
 | Jarvis help | Provides information about available commands |
 | Jarvis exit | Closes the application |
 
-### Direct Exit Commands
+### Keyboard Exit Commands
 
-The application also recognizes exit commands without requiring the wake word:
+When entering commands **by keyboard**, the application recognizes exit commands without requiring the wake word:
 
-- Exit
-- Quit
-- Close program
-- Stop program
-- Shutdown
+- `0`
+- `exit`
+- `quit`
+- `close`
+- `stop program`
+- `shutdown`
+
+**For voice commands, say “Jarvis” before the command**, such as “Jarvis exit.”
 
 ## Document Storage
 
@@ -129,7 +135,7 @@ Example file: `documents.json`
 }
 ```
 
-Documents can be accessed through the application's voice or keyboard interface.
+Documents can be accessed through the application's voice or keyboard interface. The local `documents.json` file is excluded from Git tracking to avoid publishing stored document contents.
 
 ## Testing Procedures
 
@@ -142,7 +148,7 @@ The following steps can be used to verify the application's functionality.
 3. Verify that the application initializes.
 4. Confirm that "Jarvis is online" is announced.
 
-Expected result: The application starts without errors.
+**Expected result:** The application starts without errors.
 
 ### Test 2: Document Listing
 
@@ -150,32 +156,40 @@ Expected result: The application starts without errors.
 2. Say "Jarvis list documents."
 3. Verify that stored documents are listed.
 
-Expected result: The application identifies available documents.
+**Expected result:** The application identifies available documents.
 
-### Test 3: Document Reading
+### Test 3: Document Selection and Reading
 
-1. Say "Jarvis read."
-2. Follow the application's prompts to select a document.
-3. Listen to the spoken output.
+1. Enter `4` or say "Jarvis select a document."
+2. Select a document by its displayed number or name.
+3. Enter `6` or say "Jarvis read."
+4. Listen to the spoken output.
 
-Expected result: The selected document is read aloud.
+**Expected result:** The selected document is read aloud.
 
 ### Test 4: Keyboard Input
 
 1. Start the application.
-2. Use the keyboard input option.
-3. Enter a supported command.
-4. Verify that the command is processed.
+2. Type `3` and press Enter.
+3. Verify that the command is processed.
 
-Expected result: The application responds to keyboard input.
+**Expected result:** The application responds to keyboard input.
 
-### Test 5: Exit Command
+### Test 5: Accessibility Status
 
 1. Start the application.
-2. Say "Exit" or "Jarvis exit."
+2. Type `8` and press Enter.
+3. Review the reported keyboard, microphone, and text-to-speech status.
+
+**Expected result:** The application reports its accessibility features.
+
+### Test 6: Exit Command
+
+1. Start the application.
+2. Type `0` or say "Jarvis exit."
 3. Verify that the application terminates.
 
-Expected result: The application closes normally.
+**Expected result:** The application closes without a fatal Python error.
 
 ## Troubleshooting
 
@@ -236,36 +250,27 @@ Potential improvements include:
 - Support for additional document formats
 - More advanced document searching
 
-
 ## Application Screenshots
 
-The following screenshots demonstrate the main features
-of the JARVIS Document Assistant.
+The following screenshots demonstrate the main features of the JARVIS Document Assistant.
 
 ### 1. Application Startup
 
-The application initializes its speech system, microphone,
-and keyboard input. The main menu displays the available
-commands for managing documents.
+The application initializes its speech system, microphone, and keyboard input. The main menu displays the available commands for managing documents.
 
-![JARVIS Application Startup](screenshots/Application Startup.png)
+![JARVIS Application Startup](screenshots/Application%20Startup.png)
 
 ### 2. Document Selection
 
-JARVIS displays stored documents and allows users to
-select a document by its name or number using keyboard
-input or voice commands.
+JARVIS displays stored documents and allows users to select a document by its name or number using keyboard input or voice commands.
 
-![JARVIS Document Selection](screenshots/Document Selection.png)
+![JARVIS Document Selection](screenshots/Document%20Selection.png)
 
 ### 3. Document Display, Accessibility Status, and Shutdown
 
-JARVIS displays document content, reports the availability
-of accessibility features, and closes successfully when
-the user exits the application.
+JARVIS displays document content, reports the availability of accessibility features, and closes successfully when the user exits the application.
 
-![JARVIS Accessibility and Shutdown](screenshots/Document Show_Accessibility Status_App Close.png)
-
+![JARVIS Accessibility and Shutdown](screenshots/Document%20Show_Accessibility%20Status_App%20Close.png)
 
 ## Author
 
