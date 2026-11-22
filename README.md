@@ -236,6 +236,37 @@ Potential improvements include:
 - Support for additional document formats
 - More advanced document searching
 
+
+## Application Screenshots
+
+The following screenshots demonstrate the main features
+of the JARVIS Document Assistant.
+
+### 1. Application Startup
+
+The application initializes its speech system, microphone,
+and keyboard input. The main menu displays the available
+commands for managing documents.
+
+![JARVIS Application Startup](screenshots/Application Startup.png)
+
+### 2. Document Selection
+
+JARVIS displays stored documents and allows users to
+select a document by its name or number using keyboard
+input or voice commands.
+
+![JARVIS Document Selection](screenshots/Document Selection.png)
+
+### 3. Document Display, Accessibility Status, and Shutdown
+
+JARVIS displays document content, reports the availability
+of accessibility features, and closes successfully when
+the user exits the application.
+
+![JARVIS Accessibility and Shutdown](screenshots/Document Show_Accessibility Status_App Close.png)
+
+
 ## Author
 
 Ian Martin
